@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario para Agregar Superheroes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f4f6;
+            margin: 0;
+            padding: 0;
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin: 5%;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+          
+        }
+
+        label {
+            display: block;
+            /* margin-bottom: 5px; */
+            font-weight: bold;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input:focus {
+            border-color: #007bff;
+            outline: none;
+            box-shadow: 0 0 4px rgba(0, 123, 255, 0.5);
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Editar Superheroe</h1>
+    
+    <form action="/api/formulario-edit/<%= superheroe._id %>" method="POST">
+
+        <label for="nombreSuperheroe">Nombre Superheroe</label>
+        <input 
+            type="text" name="nombreSuperheroe" id="nombreSuperheroe" minlength="3" maxlength="20" 
+            placeholder="SpiderWoman"
+            value="<%= superheroe.nombreSuperheroe %>" 
+            required
+        >
+
+        <label for="nombreReal">Nombre Real</label>
+        <input 
+            type="text" name="nombreReal" id="nombreReal" 
+            minlength="3" maxlength="20" 
+            placeholder="Luna Gutierrez" 
+            value="<%= superheroe.nombreReal %>"
+            required
+        >
+
+        <label for="edad">Edad</label>
+        <input 
+            type="text" name="edad" id="edad" 
+            required 
+            min="0" 
+            placeholder="30"
+            value="<%= superheroe.edad %>"
+        >
+
+        <label for="planetaOrigen">Planeta Origen</label>
+        <input 
+            type="text" name="planetaOrigen" id="planetaOrigen" minlength="3" maxlength="20" 
+            placeholder="Tierra" 
+            value="<%= superheroe.planetaOrigen %>"
+            required
+        >
+
+        <label for="debilidad">Debilidad</label>
+        <input 
+            type="text" id="debilidades" name="debilidad" 
+            minlength="3" maxlength="60" 
+            placeholder="Radioactiva" 
+            value="<%= superheroe.debilidad %>"
+            required
+        >
+
+        <label for="poderes">Poderes</label>
+        <textarea 
+            type="text" id="poderes" name="poderes[]" 
+            minlength="3" maxlength="60" 
+            placeholder="Trepar paredes" 
+            required
+        ><%= superheroe.poderes.join(', ') %></textarea>
+
+        <label for="aliados">Aliados</label>
+        <textarea 
+            type="text" id="aliados" name="aliados[]" 
+            minlength="3" maxlength="60" 
+            placeholder="SpiderMan" 
+            required
+        ><%= superheroe.aliados.join(', ') %></textarea>
+
+        <label for="enemigos">Enemigos</label>
+        <textarea
+            type="text" id="enemigos" name="enemigos[]" 
+            minlength="3" maxlength="60" 
+            placeholder="Hydra" 
+            required
+        ><%= superheroe.enemigos.join(', ') %></textarea>
+
+
+        <button type="submit">Actualizar Superheroe</button>
+    </form>
+
+</body>
+</html>

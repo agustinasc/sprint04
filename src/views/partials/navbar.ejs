@@ -1,0 +1,17 @@
+<nav>
+    <div class="navbar-container">
+        <a href="/" class="navbar-logo">
+            <img src="/images/logo.png" alt="Logo">
+        </a>        
+        <ul class="navbar-list">
+            <% navbarLinks.forEach(link => { %>
+                <li>
+                    <a href="<%= link.href %>" class="navbar-link">
+                        <img src="<%= link.icon %>" alt="<%= link.text %> Icon" class="navbar-icon">
+                        <%= link.text %>
+                    </a>
+                </li>
+                <% }); %>
+        </ul>
+    </div>
+</nav>

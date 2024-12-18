@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #b5e9e0;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: coral;
+    padding: 10px 20px;
+    color: rgb(2, 49, 99);
+}
+
+.navbar-logo img{
+    width: 40px;
+    margin-right: 15px;
+}
+
+.navbar-list{
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    font-size: 14px; 
+    transition: color 0.3s ease; 
+}
+
+.navbar-icon {
+    width: 30px; /* Reducido el tamaño de los iconos */
+    margin-right: 5px; /* Espaciado entre icono y texto */
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: darkmagenta;
+    color: wheat;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+} 

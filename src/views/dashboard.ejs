@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superheroes</title>
+</head>
+<body>
+    <h1>Lista de Superhéroes</h1>
+
+    <table style="width: 100%; border-collapse: collapse; text-align: left; margin: 20px 0;">
+      <!-- ENCABEZADO DE LA TABLA -->
+      <thead>
+        <tr style="background-color: #f2f2f2;">
+          <th style="border: 1px solid #ddd; padding: 8px;">Nombre Superheroe</th>
+          <th style="border: 1px solid #ddd; padding: 8px;">Nombre Real</th>
+          <th style="border: 1px solid #ddd; padding: 8px;">Edad</th>
+          <th style="border: 1px solid #ddd; padding: 8px;">Planeta Origen</th>
+          <th style="border: 1px solid #ddd; padding: 8px;">Debilidad</th>
+          <th style="border: 1px solid #ddd; padding: 8px;">Poderes</th>
+          <th style="border: 1px solid #ddd; padding: 8px;">Aliados</th>
+          <th style="border: 1px solid #ddd; padding: 8px;">Enemigos</th>
+        </tr>
+      </thead>
+
+      <!-- CUERPO DE LA TABLA -->
+
+      <TBody>
+        <% superheroes.forEach(superhero => { %>
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="border: 1px solid #ddd; padding: 8px;"><%= superhero.nombreSuperheroe %></td>
+            <td style="border: 1px solid #ddd; padding: 8px;"><%= superhero.nombreReal %></td>
+            <td style="border: 1px solid #ddd; padding: 8px;"><%= superhero.edad %></td>
+            <td style="border: 1px solid #ddd; padding: 8px;"><%= superhero.planetaOrigen %></td>
+            <td style="border: 1px solid #ddd; padding: 8px;"><%= superhero.debilidad %></td>
+            <td style="border: 1px solid #ddd; padding: 8px;"><%= superhero.poderes %></td>
+            <td style="border: 1px solid #ddd; padding: 8px;"><%= superhero.aliados %></td>
+            <td style="border: 1px solid #ddd; padding: 8px;"><%= superhero.enemigos %></td>
+
+            <td style="border: 1px solid #ddd; padding: 8px; text-align: center;">
+              <!-- Botón de edición -->
+              <a href="/api/formulario/<%= superhero._id %>">
+                <button style="background-color: #4CAF50; color: white; padding: 8px 12px; border: none; border-radius: 4px; cursor: pointer; ; margin: 5px">Editar</button>
+              </a>
+  
+              <!-- Boton de eliminar -->
+              <form action="/api/eliminar/<%= superhero._id %>" method="POST" style="display:inline;">
+                <button type="submit" style="background-color: #dc3023; color: white; padding: 8px 12px; border: none; border-radius: 4px; cursor: pointer" onclick="return confirm('¿Estás seguro de eliminar este superhéroe?')">Eliminar</button>
+              </form>
+
+            </td>
+          </tr>
+        <% }); %> 
+      </TBody>
+    </table>
+ 
+    <a href="/api/formulario">
+      <button style="background-color: #2a38cb; color: white; padding: 8px 12px; border: none; border-radius: 4px; cursor: pointer;">Agregar Nuevo Superhéroe</button>
+    </a>
+</body>
+</html>
